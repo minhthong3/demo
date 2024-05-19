@@ -25,13 +25,16 @@ st.markdown(f"""
     <style>
     .main-content {{
         display: flex;
-        justify-content: space-between;
-        align-items: center;
     }}
     .sidebar {{
         background-color: #ff6600;
         padding: 20px;
         height: 100vh;
+        position: fixed;
+        width: 250px;
+        top: 0;
+        left: 0;
+        overflow: hidden;
     }}
     .sidebar h2 {{
         color: white;
@@ -46,8 +49,9 @@ st.markdown(f"""
         text-decoration: underline;
     }}
     .main-section {{
-        flex-grow: 1;
+        margin-left: 270px;  /* Để tạo khoảng cách cho phần bên trái cố định */
         padding: 40px;
+        flex-grow: 1;
     }}
     .main-section img {{
         width: 100%;
