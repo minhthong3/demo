@@ -1,4 +1,5 @@
 import streamlit as st
+import os
 
 # Đường dẫn đến hình ảnh
 image_url = "images/27324.jpg"
@@ -9,7 +10,12 @@ def load_css(file_name):
         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 def main():
-    load_css("styles.css")
+    # Kiểm tra xem tệp CSS có tồn tại không
+    css_file = "style.css"
+    if os.path.exists(css_file):
+        load_css(css_file)
+    else:
+        st.error("File CSS không tồn tại. Hãy đảm bảo rằng tệp style.css nằm cùng thư mục với app.py")
 
     st.sidebar.title("Pages")
     menu_options = ["Cổ phiếu chọn lọc", "Đầu tư danh mục", "Thông tin thị trường", "Flash deal", "Hướng dẫn", "Liên hệ"]
@@ -33,17 +39,17 @@ def page_co_phieu_chon_loc():
     <div style="display: flex; height: 100vh;">
         <div class="sidebar">
             <h2>VNWEALTH</h2>
-            <a href="#" onclick="showPage('Cổ phiếu chọn lọc')">Cổ phiếu chọn lọc</a>
+            <a href="#">Cổ phiếu chọn lọc</a>
             <hr>
-            <a href="#" onclick="showPage('Đầu tư danh mục')">Đầu tư danh mục</a>
+            <a href="#">Đầu tư danh mục</a>
             <hr>
-            <a href="#" onclick="showPage('Thông tin thị trường')">Thông tin thị trường</a>
+            <a href="#">Thông tin thị trường</a>
             <hr>
-            <a href="#" onclick="showPage('Flash deal')">Flash deal</a>
+            <a href="#">Flash deal</a>
             <hr>
-            <a href="#" onclick="showPage('Hướng dẫn')">Hướng dẫn</a>
+            <a href="#">Hướng dẫn</a>
             <hr>
-            <a href="#" onclick="showPage('Liên hệ')">Liên hệ</a>
+            <a href="#">Liên hệ</a>
         </div>
         <div class="main-content" style="background-image: url('{image_url}');"></div>
     </div>
@@ -56,17 +62,17 @@ def page_dau_tu_danh_muc():
     <div style="display: flex; height: 100vh;">
         <div class="sidebar">
             <h2>VNWEALTH</h2>
-            <a href="#" onclick="showPage('Cổ phiếu chọn lọc')">Cổ phiếu chọn lọc</a>
+            <a href="#">Cổ phiếu chọn lọc</a>
             <hr>
-            <a href="#" onclick="showPage('Đầu tư danh mục')">Đầu tư danh mục</a>
+            <a href="#">Đầu tư danh mục</a>
             <hr>
-            <a href="#" onclick="showPage('Thông tin thị trường')">Thông tin thị trường</a>
+            <a href="#">Thông tin thị trường</a>
             <hr>
-            <a href="#" onclick="showPage('Flash deal')">Flash deal</a>
+            <a href="#">Flash deal</a>
             <hr>
-            <a href="#" onclick="showPage('Hướng dẫn')">Hướng dẫn</a>
+            <a href="#">Hướng dẫn</a>
             <hr>
-            <a href="#" onclick="showPage('Liên hệ')">Liên hệ</a>
+            <a href="#">Liên hệ</a>
         </div>
         <div class="main-content" style="background-image: url('{image_url}');"></div>
     </div>
@@ -79,17 +85,17 @@ def page_thong_tin_thi_truong():
     <div style="display: flex; height: 100vh;">
         <div class="sidebar">
             <h2>VNWEALTH</h2>
-            <a href="#" onclick="showPage('Cổ phiếu chọn lọc')">Cổ phiếu chọn lọc</a>
+            <a href="#">Cổ phiếu chọn lọc</a>
             <hr>
-            <a href="#" onclick="showPage('Đầu tư danh mục')">Đầu tư danh mục</a>
+            <a href="#">Đầu tư danh mục</a>
             <hr>
-            <a href="#" onclick="showPage('Thông tin thị trường')">Thông tin thị trường</a>
+            <a href="#">Thông tin thị trường</a>
             <hr>
-            <a href="#" onclick="showPage('Flash deal')">Flash deal</a>
+            <a href="#">Flash deal</a>
             <hr>
-            <a href="#" onclick="showPage('Hướng dẫn')">Hướng dẫn</a>
+            <a href="#">Hướng dẫn</a>
             <hr>
-            <a href="#" onclick="showPage('Liên hệ')">Liên hệ</a>
+            <a href="#">Liên hệ</a>
         </div>
         <div class="main-content" style="background-image: url('{image_url}');"></div>
     </div>
@@ -102,17 +108,17 @@ def page_flash_deal():
     <div style="display: flex; height: 100vh;">
         <div class="sidebar">
             <h2>VNWEALTH</h2>
-            <a href="#" onclick="showPage('Cổ phiếu chọn lọc')">Cổ phiếu chọn lọc</a>
+            <a href="#">Cổ phiếu chọn lọc</a>
             <hr>
-            <a href="#" onclick="showPage('Đầu tư danh mục')">Đầu tư danh mục</a>
+            <a href="#">Đầu tư danh mục</a>
             <hr>
-            <a href="#" onclick="showPage('Thông tin thị trường')">Thông tin thị trường</a>
+            <a href="#">Thông tin thị trường</a>
             <hr>
-            <a href="#" onclick="showPage('Flash deal')">Flash deal</a>
+            <a href="#">Flash deal</a>
             <hr>
-            <a href="#" onclick="showPage('Hướng dẫn')">Hướng dẫn</a>
+            <a href="#">Hướng dẫn</a>
             <hr>
-            <a href="#" onclick="showPage('Liên hệ')">Liên hệ</a>
+            <a href="#">Liên hệ</a>
         </div>
         <div class="main-content" style="background-image: url('{image_url}');"></div>
     </div>
@@ -125,17 +131,17 @@ def page_huong_dan():
     <div style="display: flex; height: 100vh;">
         <div class="sidebar">
             <h2>VNWEALTH</h2>
-            <a href="#" onclick="showPage('Cổ phiếu chọn lọc')">Cổ phiếu chọn lọc</a>
+            <a href="#">Cổ phiếu chọn lọc</a>
             <hr>
-            <a href="#" onclick="showPage('Đầu tư danh mục')">Đầu tư danh mục</a>
+            <a href="#">Đầu tư danh mục</a>
             <hr>
-            <a href="#" onclick="showPage('Thông tin thị trường')">Thông tin thị trường</a>
+            <a href="#">Thông tin thị trường</a>
             <hr>
-            <a href="#" onclick="showPage('Flash deal')">Flash deal</a>
+            <a href="#">Flash deal</a>
             <hr>
-            <a href="#" onclick="showPage('Hướng dẫn')">Hướng dẫn</a>
+            <a href="#">Hướng dẫn</a>
             <hr>
-            <a href="#" onclick="showPage('Liên hệ')">Liên hệ</a>
+            <a href="#">Liên hệ</a>
         </div>
         <div class="main-content" style="background-image: url('{image_url}');"></div>
     </div>
@@ -148,17 +154,17 @@ def page_lien_he():
     <div style="display: flex; height: 100vh;">
         <div class="sidebar">
             <h2>VNWEALTH</h2>
-            <a href="#" onclick="showPage('Cổ phiếu chọn lọc')">Cổ phiếu chọn lọc</a>
+            <a href="#">Cổ phiếu chọn lọc</a>
             <hr>
-            <a href="#" onclick="showPage('Đầu tư danh mục')">Đầu tư danh mục</a>
+            <a href="#">Đầu tư danh mục</a>
             <hr>
-            <a href="#" onclick="showPage('Thông tin thị trường')">Thông tin thị trường</a>
+            <a href="#">Thông tin thị trường</a>
             <hr>
-            <a href="#" onclick="showPage('Flash deal')">Flash deal</a>
+            <a href="#">Flash deal</a>
             <hr>
-            <a href="#" onclick="showPage('Hướng dẫn')">Hướng dẫn</a>
+            <a href="#">Hướng dẫn</a>
             <hr>
-            <a href="#" onclick="showPage('Liên hệ')">Liên hệ</a>
+            <a href="#">Liên hệ</a>
         </div>
         <div class="main-content" style="background-image: url('{image_url}');"></div>
     </div>
