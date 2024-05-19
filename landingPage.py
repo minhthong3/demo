@@ -33,7 +33,7 @@ background_image_base64 = get_image_as_base64(background_image_path)
 st.set_page_config(layout="wide")
 
 # Tạo sidebar và điều hướng
-st.sidebar.image(sidebar_image_base64, use_column_width=True)
+st.sidebar.image(Image.open(BytesIO(base64.b64decode(sidebar_image_base64))), use_column_width=True)
 st.sidebar.title("Minh Thông Nguyễn")
 
 # Các mục trong sidebar
