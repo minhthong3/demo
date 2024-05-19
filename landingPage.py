@@ -58,6 +58,6 @@ st.markdown("""
         </div>
     </div>
 """.format(
-    st.image("path_to_your_main_image.png", use_column_width=True),  # Replace with the path to your image
-    st.image("path_to_your_logo_image.png", use_column_width=True)  # Replace with the path to your logo
+    st.image("images/AI-Bot.bmp", use_column_width=True),  # Replace with the path to your image
+    st.image("images/confused person 2.bmp", use_column_width=True)  # Replace with the path to your logo
 ), unsafe_allow_html=True)
