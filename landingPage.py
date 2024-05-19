@@ -2,7 +2,7 @@ import streamlit as st
 
 # Use local CSS for styling
 def local_css(file_name):
-    with open(file_name) "r" as f:
+    with open(file_name, "r") as f:  # Sửa lỗi cú pháp ở đây bằng cách thêm dấu phẩy
         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 # Load the CSS
