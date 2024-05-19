@@ -32,6 +32,28 @@ background_image_base64 = get_image_as_base64(background_image_path)
 # Cấu hình bố cục trang
 st.set_page_config(layout="wide")
 
+# Tạo sidebar và điều hướng
+st.sidebar.image(sidebar_image_base64, use_column_width=True)
+st.sidebar.title("Minh Thông Nguyễn")
+
+# Các mục trong sidebar
+pages = {
+    "Nâng cấp tài khoản (BASIC)": "upgrade",
+    "Cài đặt thông báo": "settings",
+    "Danh mục theo dõi": "watchlist",
+    "Tổng hợp": "summary",
+    "Bộ lọc": "filter",
+    "Khuyến nghị": "recommendations",
+    "Biểu đồ kỹ thuật": "technical_charts",
+    "Sàn tin": "news",
+    "Phân tích": "analysis",
+    "Blog": "blog",
+    "Hướng dẫn chung": "guide",
+}
+
+# Lựa chọn trang từ sidebar
+selection = st.sidebar.radio("Chọn trang", list(pages.keys()))
+
 # Thêm nội dung chính
 st.markdown(f"""
     <style>
@@ -104,3 +126,38 @@ st.markdown(f"""
         </div>
     </div>
 """, unsafe_allow_html=True)
+
+# Nội dung của từng trang
+if pages[selection] == "upgrade":
+    st.title("Nâng cấp tài khoản (BASIC)")
+    st.write("Nội dung trang Nâng cấp tài khoản (BASIC)")
+elif pages[selection] == "settings":
+    st.title("Cài đặt thông báo")
+    st.write("Nội dung trang Cài đặt thông báo")
+elif pages[selection] == "watchlist":
+    st.title("Danh mục theo dõi")
+    st.write("Nội dung trang Danh mục theo dõi")
+elif pages[selection] == "summary":
+    st.title("Tổng hợp")
+    st.write("Nội dung trang Tổng hợp")
+elif pages[selection] == "filter":
+    st.title("Bộ lọc")
+    st.write("Nội dung trang Bộ lọc")
+elif pages[selection] == "recommendations":
+    st.title("Khuyến nghị")
+    st.write("Nội dung trang Khuyến nghị")
+elif pages[selection] == "technical_charts":
+    st.title("Biểu đồ kỹ thuật")
+    st.write("Nội dung trang Biểu đồ kỹ thuật")
+elif pages[selection] == "news":
+    st.title("Sàn tin")
+    st.write("Nội dung trang Sàn tin")
+elif pages[selection] == "analysis":
+    st.title("Phân tích")
+    st.write("Nội dung trang Phân tích")
+elif pages[selection] == "blog":
+    st.title("Blog")
+    st.write("Nội dung trang Blog")
+elif pages[selection] == "guide":
+    st.title("Hướng dẫn chung")
+    st.write("Nội dung trang Hướng dẫn chung")
