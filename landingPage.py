@@ -1,43 +1,60 @@
 import streamlit as st
+from PIL import Image
+import base64
+from io import BytesIO
 
-# Set the page layout
+def get_image_as_base64(image_path):
+    img = Image.open(image_path)
+    buffered = BytesIO()
+    img.save(buffered, format="BMP")
+    return base64.b64encode(buffered.getvalue()).decode()
+
+# Cấu hình bố cục trang
 st.set_page_config(layout="wide")
 
-# Add the main content
-st.markdown("""
+# Đường dẫn đến hình ảnh của bạn
+main_image_path = "images/AI-Bot.bmp"  # Thay thế bằng đường dẫn đến hình ảnh của bạn
+logo_image_path = "images/confused person 2.bmp"  # Thay thế bằng đường dẫn đến logo của bạn
+
+# Chuyển đổi hình ảnh sang base64
+main_image_base64 = get_image_as_base64(main_image_path)
+logo_image_base64 = get_image_as_base64(logo_image_path)
+
+# Thêm nội dung chính
+st.markdown(f"""
     <style>
-    .main-content {
+    .main-content {{
         display: flex;
         justify-content: space-between;
         align-items: center;
-    }
-    .sidebar {
+    }}
+    .sidebar {{
         background-color: #ff6600;
         padding: 20px;
         height: 100vh;
-    }
-    .sidebar h2 {
+    }}
+    .sidebar h2 {{
         color: white;
-    }
-    .sidebar a {
+    }}
+    .sidebar a {{
         display: block;
         color: white;
         text-decoration: none;
         margin: 20px 0;
-    }
-    .sidebar a:hover {
+    }}
+    .sidebar a:hover {{
         text-decoration: underline;
-    }
-    .main-section {
+    }}
+    .main-section {{
         flex-grow: 1;
         padding: 40px;
-    }
-    .main-section img {
+    }}
+    .main-section img {{
         width: 100%;
-    }
-    .logo {
+    }}
+    .logo {{
         max-width: 200px;
-    }
+    }}
     </style>
     <div class="main-content">
         <div class="sidebar">
@@ -50,14 +67,11 @@ st.markdown("""
             <a href="#">Contact Us</a>
         </div>
         <div class="main-section">
-            <img src="data:image/png;base64,{}" alt="Main Image">
+            <img src="data:image/bmp;base64,{main_image_base64}" alt="Main Image">
             <div>
-                <img class="logo" src="data:image/png;base64,{}" alt="Logo">
+                <img class="logo" src="data:image/bmp;base64,{logo_image_base64}" alt="Logo">
                 <h1>Strategic Branding</h1>
             </div>
         </div>
     </div>
-""".format(
-    st.image("images/AI-Bot.bmp", use_column_width=True),  # Replace with the path to your image
-    st.image("images/confused person 2.bmp", use_column_width=True)  # Replace with the path to your logo
-), unsafe_allow_html=True)
+""", unsafe_allow_html=True)
