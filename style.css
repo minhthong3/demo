@@ -1,32 +1,26 @@
-/* Reset some Streamlit default CSS */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-}
-.wrapper {
-    display: flex;
-    height: 100vh;
-}
-
-/* Sidebar styling */
+/* style.css */
 .sidebar .sidebar-content {
-    background-color: #8A2BE2;
+    background-color: #4B0082;
     color: white;
-    height: 100vh;
-    overflow-y: auto;
     position: fixed;
-    width: 300px; /* Adjust width as necessary */
+    height: 100%;
 }
-
-/* Adjust main area */
-.main {
-    margin-left: 300px; /* Same as sidebar width */
-    overflow-y: auto;
-    height: 100vh;
+.main .block-container {
+    padding-top: 2rem;
+    padding-left: 18rem;
 }
-
-/* Adjust the main block margins */
-.block-container {
-    padding: 2rem;
-    width: calc(100% - 300px); /* Responsive width */
+.sidebar .sidebar-content a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 2.5;
+}
+.sidebar .sidebar-content a:hover {
+    text-decoration: underline;
+}
+.sidebar .sidebar-content hr {
+    border: 1px solid #FF8C00;
+}
+.main img {
+    max-width: 100%;
 }
