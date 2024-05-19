@@ -2,7 +2,7 @@ import streamlit as st
 from PIL import Image
 
 # Đọc hình ảnh
-image = Image.open("/mnt/data/Cổ phiếu chọn lọc (2).png")
+image = Image.open("images/27324.jpg")
 
 # Tạo tiêu đề cho trang web
 st.title("VNWEALTH")
