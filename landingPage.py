@@ -4,12 +4,36 @@ from PIL import Image
 # Load image
 image = Image.open('images/27324.jpg')
 
-# Load custom CSS
-def load_css(file_name):
-    with open(file_name) as f:
-        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
-
-load_css('style.css')
+# Custom CSS to style the page
+st.markdown("""
+    <style>
+    .sidebar .sidebar-content {
+        background-color: #4B0082;
+        color: white;
+        position: fixed;
+        height: 100%;
+    }
+    .main .block-container {
+        padding-top: 2rem;
+        padding-left: 18rem;
+    }
+    .sidebar .sidebar-content a {
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        line-height: 2.5;
+    }
+    .sidebar .sidebar-content a:hover {
+        text-decoration: underline;
+    }
+    .sidebar .sidebar-content hr {
+        border: 1px solid #FF8C00;
+    }
+    .main img {
+        max-width: 100%;
+    }
+    </style>
+    """, unsafe_allow_html=True)
 
 # Sidebar content
 st.sidebar.markdown("""
