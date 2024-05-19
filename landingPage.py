@@ -32,27 +32,27 @@ background_image_base64 = get_image_as_base64(background_image_path)
 # Cấu hình bố cục trang
 st.set_page_config(layout="wide")
 
-# Tạo sidebar và điều hướng
-st.sidebar.image(Image.open(BytesIO(base64.b64decode(sidebar_image_base64))), use_column_width=True)
-st.sidebar.title("Minh Thông Nguyễn")
-
-# Các mục trong sidebar
+# Các mục trong sidebar với các biểu tượng
 pages = {
-    "Nâng cấp tài khoản (BASIC)": "upgrade",
-    "Cài đặt thông báo": "settings",
-    "Danh mục theo dõi": "watchlist",
-    "Tổng hợp": "summary",
-    "Bộ lọc": "filter",
-    "Khuyến nghị": "recommendations",
-    "Biểu đồ kỹ thuật": "technical_charts",
-    "Sàn tin": "news",
-    "Phân tích": "analysis",
-    "Blog": "blog",
-    "Hướng dẫn chung": "guide",
+    "Nâng cấp tài khoản (BASIC)": ("upgrade", "🔧"),
+    "Cài đặt thông báo": ("settings", "🔔"),
+    "Danh mục theo dõi": ("watchlist", "📈"),
+    "Tổng hợp": ("summary", "📊"),
+    "Bộ lọc": ("filter", "🔍"),
+    "Khuyến nghị": ("recommendations", "💡"),
+    "Biểu đồ kỹ thuật": ("technical_charts", "📉"),
+    "Sàn tin": ("news", "📰"),
+    "Phân tích": ("analysis", "🧠"),
+    "Blog": ("blog", "📝"),
+    "Hướng dẫn chung": ("guide", "📚"),
 }
 
+# Tạo sidebar và điều hướng
+st.sidebar.markdown(f"<img src='data:image/png;base64,{sidebar_image_base64}' style='width:100%; border-radius:10px;'>", unsafe_allow_html=True)
+st.sidebar.markdown("<h2 style='color: white;'>Minh Thông Nguyễn</h2>", unsafe_allow_html=True)
+
 # Lựa chọn trang từ sidebar
-selection = st.sidebar.radio("Chọn trang", list(pages.keys()))
+selection = st.sidebar.radio("Chọn trang", list(pages.keys()), format_func=lambda x: f"{pages[x][1]} {x}")
 
 # Thêm nội dung chính
 st.markdown(f"""
@@ -61,34 +61,23 @@ st.markdown(f"""
         margin: 0;
         font-family: Arial, sans-serif;
     }}
-    .container {{
-        display: flex;
-        height: 100vh;
-    }}
-    .sidebar {{
+    .sidebar .radio {{
         background-color: #2c3e50;
         color: white;
-        padding: 15px;
-        width: 250px;
-        height: 100vh;
-        position: fixed;
-        overflow: auto;
-    }}
-    .sidebar img {{
-        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
         border-radius: 10px;
     }}
-    .sidebar h2 {{
-        color: white;
-    }}
-    .sidebar a {{
-        color: white;
-        text-decoration: none;
-        display: block;
-        padding: 10px 0;
-    }}
-    .sidebar a:hover {{
+    .sidebar .radio:hover {{
         background-color: #34495e;
+    }}
+    .sidebar .radio label {{
+        display: flex;
+        align-items: center;
+        color: white;
+    }}
+    .sidebar .radio label span {{
+        margin-left: 10px;
     }}
     .main {{
         margin-left: 250px;
@@ -105,19 +94,9 @@ st.markdown(f"""
     </style>
     <div class="container">
         <div class="sidebar">
-            <img src="data:image/png;base64,{sidebar_image_base64}" alt="User Image">
-            <h2>Minh Thông Nguyễn</h2>
-            <a href="#">Nâng cấp tài khoản (BASIC)</a>
-            <a href="#">Cài đặt thông báo</a>
-            <a href="#">Danh mục theo dõi</a>
-            <a href="#">Tổng hợp</a>
-            <a href="#">Bộ lọc</a>
-            <a href="#">Khuyến nghị</a>
-            <a href="#">Biểu đồ kỹ thuật</a>
-            <a href="#">Sàn tin</a>
-            <a href="#">Phân tích</a>
-            <a href="#">Blog</a>
-            <a href="#">Hướng dẫn chung</a>
+            <img src="data:image/png;base64,{sidebar_image_base64}" alt="User Image" style="width:100%; border-radius:10px;">
+            <h2 style='color: white;'>Minh Thông Nguyễn</h2>
+            <div class="radio">{selection}</div>
         </div>
         <div class="main">
             <h1>Welcome to Finbox</h1>
@@ -128,36 +107,36 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 # Nội dung của từng trang
-if pages[selection] == "upgrade":
+if pages[selection][0] == "upgrade":
     st.title("Nâng cấp tài khoản (BASIC)")
     st.write("Nội dung trang Nâng cấp tài khoản (BASIC)")
-elif pages[selection] == "settings":
+elif pages[selection][0] == "settings":
     st.title("Cài đặt thông báo")
     st.write("Nội dung trang Cài đặt thông báo")
-elif pages[selection] == "watchlist":
+elif pages[selection][0] == "watchlist":
     st.title("Danh mục theo dõi")
     st.write("Nội dung trang Danh mục theo dõi")
-elif pages[selection] == "summary":
+elif pages[selection][0] == "summary":
     st.title("Tổng hợp")
     st.write("Nội dung trang Tổng hợp")
-elif pages[selection] == "filter":
+elif pages[selection][0] == "filter":
     st.title("Bộ lọc")
     st.write("Nội dung trang Bộ lọc")
-elif pages[selection] == "recommendations":
+elif pages[selection][0] == "recommendations":
     st.title("Khuyến nghị")
     st.write("Nội dung trang Khuyến nghị")
-elif pages[selection] == "technical_charts":
+elif pages[selection][0] == "technical_charts":
     st.title("Biểu đồ kỹ thuật")
     st.write("Nội dung trang Biểu đồ kỹ thuật")
-elif pages[selection] == "news":
+elif pages[selection][0] == "news":
     st.title("Sàn tin")
     st.write("Nội dung trang Sàn tin")
-elif pages[selection] == "analysis":
+elif pages[selection][0] == "analysis":
     st.title("Phân tích")
     st.write("Nội dung trang Phân tích")
-elif pages[selection] == "blog":
+elif pages[selection][0] == "blog":
     st.title("Blog")
     st.write("Nội dung trang Blog")
-elif pages[selection] == "guide":
+elif pages[selection][0] == "guide":
     st.title("Hướng dẫn chung")
     st.write("Nội dung trang Hướng dẫn chung")
