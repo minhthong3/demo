@@ -4,9 +4,8 @@ import streamlit as st
 image_url = "images/27324.jpg"
 
 def main():
-
     menu_options = ["Cổ phiếu chọn lọc", "Đầu tư danh mục", "Thông tin thị trường", "Flash deal", "Hướng dẫn", "Liên hệ"]
-    menu_selection = st.sidebar.radio(menu_options)
+    menu_selection = st.sidebar.radio("", menu_options)
 
     if menu_selection == "Cổ phiếu chọn lọc":
         page_co_phieu_chon_loc()
