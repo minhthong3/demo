@@ -15,4 +15,4 @@ for item in menu_items:
     st.sidebar.write(item)
 
 # Main Content
-st.image("path_to_your_image.jpg", use_column_width=True)  # Adjust path as needed
+st.image("images/27324.jpg", use_column_width=True)  # Adjust path as needed
