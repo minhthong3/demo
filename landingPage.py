@@ -11,8 +11,8 @@ def get_image_as_base64(image_path):
     return base64.b64encode(buffered.getvalue()).decode()
 
 # Đường dẫn đến hình ảnh của bạn
-sidebar_image_path = "images/your_sidebar_image.png"  # Thay thế bằng đường dẫn đến hình ảnh trên thanh điều hướng
-background_image_path = "Cổ phiếu chọn lọc.png"  # Thay thế bằng đường dẫn đến hình ảnh nền
+sidebar_image_path = ""  # Thay thế bằng đường dẫn đến hình ảnh trên thanh điều hướng
+background_image_path = "images/27324.jpg"  # Thay thế bằng đường dẫn đến hình ảnh nền
 
 # Chuyển đổi hình ảnh sang base64
 sidebar_image_base64 = get_image_as_base64(sidebar_image_path)
