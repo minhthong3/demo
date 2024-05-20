@@ -73,7 +73,7 @@ menu_items = {
 }
 
 selected_item = st.sidebar.radio(
-    "Navigate",
+    "",
     list(menu_items.keys()),
     format_func=lambda x: f"{menu_items[x]} {x}"
 )
