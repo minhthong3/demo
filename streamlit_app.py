@@ -4,7 +4,7 @@ import streamlit as st
 background_image = '''
 <style>
 body {
-    background-image: url("https://example.com/your-background-image.jpg");
+    background-image: url("images/27324.jpg");
     background-size: cover;
 }
 </style>
