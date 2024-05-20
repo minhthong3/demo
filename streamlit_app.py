@@ -24,7 +24,7 @@ def set_png_as_page_bg(png_file):
     return
 
 # Set the background image
-set_png_as_page_bg('images/27324.jpg')
+set_png_as_page_bg('images/VN.png')
 
 # Sidebar title
 st.sidebar.title("VNWEALTH")
