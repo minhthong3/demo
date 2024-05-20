@@ -9,9 +9,7 @@ st.markdown(
     """
     <style>
     .sidebar .sidebar-content {
-        background-image: url(https://via.placeholder.com/150);
-        background-repeat: no-repeat;
-        background-size: cover;
+        background-color: #ff5722; /* Adjust this to match your orange sidebar */
         color: white;
     }
     .main {
@@ -43,14 +41,33 @@ st.markdown(
 # Sidebar with custom image and menu
 st.sidebar.image(image, use_column_width=True)
 st.sidebar.title("Learn about our company")
-st.sidebar.markdown("<div style='color: white;'>Our Values</div>", unsafe_allow_html=True)
-st.sidebar.markdown("<div style='color: white;'>The Team</div>", unsafe_allow_html=True)
-st.sidebar.markdown("<div style='color: white;'>Our Services</div>", unsafe_allow_html=True)
-st.sidebar.markdown("<div style='color: white;'>Newsletter</div>", unsafe_allow_html=True)
-st.sidebar.markdown("<div style='color: white;'>Book a Consultation</div>", unsafe_allow_html=True)
-st.sidebar.markdown("<div style='color: white;'>Contact Us</div>", unsafe_allow_html=True)
 
-# Main content
+# Sidebar menu
+menu = st.sidebar.radio(
+    "Navigate",
+    ("Our Values", "The Team", "Our Services", "Newsletter", "Book a Consultation", "Contact Us")
+)
+
+# Main content based on sidebar selection
+if menu == "Our Values":
+    st.header("Our Values")
+    st.write("Content for Our Values section...")
+elif menu == "The Team":
+    st.header("The Team")
+    st.write("Content for The Team section...")
+elif menu == "Our Services":
+    st.header("Our Services")
+    st.write("Content for Our Services section...")
+elif menu == "Newsletter":
+    st.header("Newsletter")
+    st.write("Content for Newsletter section...")
+elif menu == "Book a Consultation":
+    st.header("Book a Consultation")
+    st.write("Content for Book a Consultation section...")
+elif menu == "Contact Us":
+    st.header("Contact Us")
+    st.write("Content for Contact Us section...")
+
+# Additional main page content
 st.image(image, caption='Strategic Branding', use_column_width=True)
 st.write("Welcome to our website! Here you can learn more about our values, the team, and the services we offer. Feel free to contact us or book a consultation.")
-
