@@ -53,8 +53,8 @@ st.markdown(
         background-color: #1e3799;
     }
     .sidebar .sidebar-radio label img {
-        width: 16px;  /* Reduced size */
-        height: 16px;  /* Reduced size */
+        width: 24px;
+        height: 24px;
         margin-right: 10px;
     }
     </style>
