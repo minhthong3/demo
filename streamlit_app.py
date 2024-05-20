@@ -4,50 +4,11 @@ import streamlit as st
 st.markdown(
     """
     <style>
-    .sideNavigation_sideNavigationContainer__G0dDv {
-        height: 100%;
-        display: grid;
-        grid-template-columns: 260px auto;
-    }
-    .sideNavigation_sideNavigationMenuContainer__cDKfX {
-        background-color: #2c3e50;
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-        z-index: 10;
-        padding: 10px;
+    .sidebar .sidebar-content {
+        background-color: #2c3e50; /* Adjust this to match your dark sidebar */
         color: white;
-    }
-    .sideNavigation_itemList__LeEZ0 {
-        overflow: overlay;
-        color: white;
-    }
-    .sideNavigation_sideNavigationBodyContainer__lmizj {
-        overflow: scroll;
-        position: relative;
-        color: white;
-    }
-    .sideNavigation_header__mUzX3 {
-        margin-top: 1.5rem;
-        color: white;
-    }
-    .sideNavigation_title__dL9t2 {
-        font-weight: 400;
-        line-height: 2.25rem;
-        color: white;
-    }
-    .sideNavigation_subTitle__VSPgg {
-        color: white;
-        font-size: .875rem;
-        font-weight: 400;
-        line-height: 1rem;
-    }
-    .sidebar .sidebar-content, .main {
         padding: 0;
         margin: 0;
-        color: white;
-    }
-    .sidebar .sidebar-content {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -55,11 +16,11 @@ st.markdown(
         text-align: left;
         padding-left: 20px;
     }
-    .sidebar-content h1 {
+    .sidebar .sidebar-content h1 {
         margin-top: 20px;
         color: #ffffff;
     }
-    .sidebar-content p {
+    .sidebar .sidebar-content p {
         color: #ffffff;
     }
     .sidebar .sidebar-radio input[type="radio"] {
@@ -77,10 +38,10 @@ st.markdown(
         margin-left: 10px;
     }
     .sidebar .sidebar-radio label:hover {
-        background-color: #e64a19;
+        background-color: #34495e;
     }
     .sidebar .sidebar-radio input[type="radio"]:checked + label {
-        background-color: #d84315;
+        background-color: #1abc9c;
     }
     .sidebar .sidebar-radio label img {
         width: 24px;
