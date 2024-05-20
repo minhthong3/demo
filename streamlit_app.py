@@ -1,4 +1,5 @@
 import streamlit as st
+from PIL import Image
 
 # Custom CSS
 st.markdown(
@@ -64,40 +65,41 @@ st.sidebar.title("Learn about our company")
 
 # Sidebar menu with custom icons
 menu_items = {
-    "Our Values": "🌟",
-    "The Team": "👥",
-    "Our Services": "💼",
-    "Newsletter": "📰",
-    "Book a Consultation": "📅",
-    "Contact Us": "📞"
+    "Our Values": "https://img.icons8.com/ios-filled/50/000000/values.png",
+    "The Team": "https://img.icons8.com/ios-filled/50/000000/team.png",
+    "Our Services": "https://img.icons8.com/ios-filled/50/000000/services.png",
+    "Newsletter": "https://img.icons8.com/ios-filled/50/000000/newsletter.png",
+    "Book a Consultation": "https://img.icons8.com/ios-filled/50/000000/consultation.png",
+    "Contact Us": "https://img.icons8.com/ios-filled/50/000000/contact.png"
 }
 
-selected_item = st.sidebar.radio(
-    "Navigate",
-    list(menu_items.keys()),
-    format_func=lambda x: f"{menu_items[x]} {x}"
-)
+# Custom sidebar with icons
+selected_item = None
+for item in menu_items.keys():
+    if st.sidebar.radio("", [item], key=item):
+        selected_item = item
 
 # Main content based on sidebar selection
-st.title(selected_item)
-if selected_item == "Our Values":
-    st.header("Our Values")
-    st.write("Content for Our Values section...")
-elif selected_item == "The Team":
-    st.header("The Team")
-    st.write("Content for The Team section...")
-elif selected_item == "Our Services":
-    st.header("Our Services")
-    st.write("Content for Our Services section...")
-elif selected_item == "Newsletter":
-    st.header("Newsletter")
-    st.write("Content for Newsletter section...")
-elif selected_item == "Book a Consultation":
-    st.header("Book a Consultation")
-    st.write("Content for Book a Consultation section...")
-elif selected_item == "Contact Us":
-    st.header("Contact Us")
-    st.write("Content for Contact Us section...")
+if selected_item:
+    st.title(selected_item)
+    if selected_item == "Our Values":
+        st.header("Our Values")
+        st.write("Content for Our Values section...")
+    elif selected_item == "The Team":
+        st.header("The Team")
+        st.write("Content for The Team section...")
+    elif selected_item == "Our Services":
+        st.header("Our Services")
+        st.write("Content for Our Services section...")
+    elif selected_item == "Newsletter":
+        st.header("Newsletter")
+        st.write("Content for Newsletter section...")
+    elif selected_item == "Book a Consultation":
+        st.header("Book a Consultation")
+        st.write("Content for Book a Consultation section...")
+    elif selected_item == "Contact Us":
+        st.header("Contact Us")
+        st.write("Content for Contact Us section...")
 
 # Additional main page content
 st.write("Welcome to our website! Here you can learn more about our values, the team, and the services we offer. Feel free to contact us or book a consultation.")
