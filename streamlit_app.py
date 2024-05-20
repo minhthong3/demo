@@ -2,7 +2,7 @@ import streamlit as st
 from PIL import Image
 
 # Load the image
-image = Image.open("/mnt/data/Untitled design.png")
+image = Image.open("images/27324.jpg")
 
 # Custom CSS
 st.markdown(
