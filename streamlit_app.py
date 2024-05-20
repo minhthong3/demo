@@ -11,7 +11,6 @@ st.markdown(
     .main {
         background-color: #34495e;
         color: white;
-        padding: 20px;
     }
     .sidebar .sidebar-content, .main {
         padding: 0;
@@ -54,8 +53,8 @@ st.markdown(
         background-color: #1e3799;
     }
     .sidebar .sidebar-radio label img {
-        width: 24px;
-        height: 24px;
+        width: 16px;  /* Reduced size */
+        height: 16px;  /* Reduced size */
         margin-right: 10px;
     }
     </style>
@@ -95,20 +94,32 @@ selected_item = st.sidebar.radio(
 )
 
 # Main content based on sidebar selection
+def trang_chu():
+    st.header("Trang chủ")
+    st.write("Nội dung của Trang chủ...")
+
+def phan_tich_co_ban():
+    st.header("Phân tích cơ bản")
+    st.write("Nội dung của Phân tích cơ bản...")
+
+def bo_loc_chi_tiet():
+    st.header("Bộ lọc chi tiết")
+    st.write("Nội dung của Bộ lọc chi tiết...")
+
+def ban_do_co_dong():
+    st.header("Bản đồ cổ đông")
+    st.write("Nội dung của Bản đồ cổ đông...")
+
+# Page navigation
+page_functions = {
+    "Trang chủ": trang_chu,
+    "Phân tích cơ bản": phan_tich_co_ban,
+    "Bộ lọc chi tiết": bo_loc_chi_tiet,
+    "Bản đồ cổ đông": ban_do_co_dong
+}
+
 if selected_item:
-    st.title(selected_item)
-    if selected_item == "Trang chủ":
-        st.header("Trang chủ")
-        st.write("Nội dung của Trang chủ...")
-    elif selected_item == "Phân tích cơ bản":
-        st.header("Phân tích cơ bản")
-        st.write("Nội dung của Phân tích cơ bản...")
-    elif selected_item == "Bộ lọc chi tiết":
-        st.header("Bộ lọc chi tiết")
-        st.write("Nội dung của Bộ lọc chi tiết...")
-    elif selected_item == "Bản đồ cổ đông":
-        st.header("Bản đồ cổ đông")
-        st.write("Nội dung của Bản đồ cổ đông...")
+    page_functions[selected_item]()
 
 # Additional main page content
 st.write("Chào mừng đến với trang web của chúng tôi! Ở đây bạn có thể tìm hiểu thêm về các giá trị, đội ngũ và các dịch vụ mà chúng tôi cung cấp. Hãy liên hệ với chúng tôi hoặc đặt một buổi tư vấn.")
