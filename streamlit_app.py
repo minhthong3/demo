@@ -48,7 +48,7 @@ st.markdown(
         height: 24px;
     }
     .main {
-        background: url('background_image_url.jpg') no-repeat center center fixed;
+        background: url('images/27324.jpg') no-repeat center center fixed;
         background-size: cover;
         color: white;
         padding: 20px;
