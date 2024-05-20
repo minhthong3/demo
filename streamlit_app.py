@@ -4,12 +4,40 @@ import streamlit as st
 st.markdown(
     """
     <style>
-    .sidebar .sidebar-content {
-        background-color: #ff5722; /* Adjust this to match your orange sidebar */
-        color: white;
+    .sideNavigation_sideNavigationContainer__G0dDv {
+        height: 100%;
+        display: grid;
+        grid-template-columns: 260px auto;
     }
-    .main {
-        background-color: #f8f8f8;
+    .sideNavigation_sideNavigationMenuContainer__cDKfX {
+        background-color: rgb(250, 250, 250);
+        border-bottom-width: 1px;
+        border-color: rgb(213, 218, 229);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        z-index: 10;
+        border-right-width: 1px;
+    }
+    .sideNavigation_itemList__LeEZ0 {
+        overflow: overlay;
+    }
+    .sideNavigation_sideNavigationBodyContainer__lmizj {
+        overflow: scroll;
+        position: relative;
+    }
+    .sideNavigation_header__mUzX3 {
+        margin-top: 1.5rem;
+    }
+    .sideNavigation_title__dL9t2 {
+        font-weight: 400;
+        line-height: 2.25rem;
+    }
+    .sideNavigation_subTitle__VSPgg {
+        color: rgb(128, 132, 149);
+        font-size: .875rem;
+        font-weight: 400;
+        line-height: 1rem;
     }
     .sidebar .sidebar-content, .main {
         padding: 0;
