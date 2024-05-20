@@ -50,6 +50,10 @@ st.markdown(
     .sidebar .sidebar-radio input[type="radio"]:checked + label {
         background-color: #d84315;
     }
+    .sidebar .sidebar-radio label img {
+        width: 24px;
+        height: 24px;
+    }
     </style>
     """,
     unsafe_allow_html=True
