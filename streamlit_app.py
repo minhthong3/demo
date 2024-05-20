@@ -1,16 +1,15 @@
 import streamlit as st
-from PIL import Image
 
 # Custom CSS
 st.markdown(
     """
     <style>
     .sidebar .sidebar-content {
-        background-color: #ff5722; /* Adjust this to match your orange sidebar */
+        background-color: #2c3e50;
         color: white;
     }
     .main {
-        background-color: #f8f8f8;
+        background-color: #34495e;
     }
     .sidebar .sidebar-content, .main {
         padding: 0;
@@ -46,14 +45,15 @@ st.markdown(
         margin-left: 10px;
     }
     .sidebar .sidebar-radio label:hover {
-        background-color: #e64a19;
+        background-color: #3a539b;
     }
     .sidebar .sidebar-radio input[type="radio"]:checked + label {
-        background-color: #d84315;
+        background-color: #1e3799;
     }
     .sidebar .sidebar-radio label img {
         width: 24px;
         height: 24px;
+        margin-right: 10px;
     }
     </style>
     """,
@@ -65,41 +65,32 @@ st.sidebar.title("Learn about our company")
 
 # Sidebar menu with custom icons
 menu_items = {
-    "Our Values": "https://img.icons8.com/ios-filled/50/000000/values.png",
-    "The Team": "https://img.icons8.com/ios-filled/50/000000/team.png",
-    "Our Services": "https://img.icons8.com/ios-filled/50/000000/services.png",
-    "Newsletter": "https://img.icons8.com/ios-filled/50/000000/newsletter.png",
-    "Book a Consultation": "https://img.icons8.com/ios-filled/50/000000/consultation.png",
-    "Contact Us": "https://img.icons8.com/ios-filled/50/000000/contact.png"
+    "Trang chủ": "https://img.icons8.com/ios-filled/50/ffffff/home.png",
+    "Phân tích cơ bản": "https://img.icons8.com/ios-filled/50/ffffff/combo-chart.png",
+    "Bộ lọc chi tiết": "https://img.icons8.com/ios-filled/50/ffffff/search.png",
+    "Bản đồ cổ đông": "https://img.icons8.com/ios-filled/50/ffffff/map.png"
 }
 
-# Custom sidebar with icons
 selected_item = None
-for item in menu_items.keys():
+for item, icon in menu_items.items():
     if st.sidebar.radio("", [item], key=item):
         selected_item = item
 
 # Main content based on sidebar selection
 if selected_item:
     st.title(selected_item)
-    if selected_item == "Our Values":
-        st.header("Our Values")
-        st.write("Content for Our Values section...")
-    elif selected_item == "The Team":
-        st.header("The Team")
-        st.write("Content for The Team section...")
-    elif selected_item == "Our Services":
-        st.header("Our Services")
-        st.write("Content for Our Services section...")
-    elif selected_item == "Newsletter":
-        st.header("Newsletter")
-        st.write("Content for Newsletter section...")
-    elif selected_item == "Book a Consultation":
-        st.header("Book a Consultation")
-        st.write("Content for Book a Consultation section...")
-    elif selected_item == "Contact Us":
-        st.header("Contact Us")
-        st.write("Content for Contact Us section...")
+    if selected_item == "Trang chủ":
+        st.header("Trang chủ")
+        st.write("Nội dung của Trang chủ...")
+    elif selected_item == "Phân tích cơ bản":
+        st.header("Phân tích cơ bản")
+        st.write("Nội dung của Phân tích cơ bản...")
+    elif selected_item == "Bộ lọc chi tiết":
+        st.header("Bộ lọc chi tiết")
+        st.write("Nội dung của Bộ lọc chi tiết...")
+    elif selected_item == "Bản đồ cổ đông":
+        st.header("Bản đồ cổ đông")
+        st.write("Nội dung của Bản đồ cổ đông...")
 
 # Additional main page content
-st.write("Welcome to our website! Here you can learn more about our values, the team, and the services we offer. Feel free to contact us or book a consultation.")
+st.write("Chào mừng đến với trang web của chúng tôi! Ở đây bạn có thể tìm hiểu thêm về các giá trị, đội ngũ và các dịch vụ mà chúng tôi cung cấp. Hãy liên hệ với chúng tôi hoặc đặt một buổi tư vấn.")
