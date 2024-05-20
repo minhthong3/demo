@@ -4,78 +4,100 @@ import streamlit as st
 st.markdown(
     """
     <style>
-    .st-ae, .st-af, .st-ag, .st-ah, .st-ai, .st-aj, .st-ak {
-        background-color: #4B0082; /* Màu nền sidebar */
+    .sidebar .sidebar-content {
+        background-color: #ff5722; /* Adjust this to match your orange sidebar */
         color: white;
-        padding: 20px;
     }
-    .st-al {
-        font-size: 32px;
-        font-weight: bold;
+    .main {
+        background-color: #f8f8f8;
+    }
+    .sidebar .sidebar-content, .main {
+        padding: 0;
+        margin: 0;
+    }
+    .sidebar .sidebar-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        text-align: left;
+        padding-left: 20px;
+    }
+    .sidebar-content h1 {
+        margin-top: 20px;
+        color: #ffffff;
+    }
+    .sidebar-content p {
+        color: #ffffff;
+    }
+    .sidebar .sidebar-radio input[type="radio"] {
+        display: none;
+    }
+    .sidebar .sidebar-radio label {
+        display: flex;
+        align-items: center;
         color: white;
-        margin-bottom: 20px;
+        font-size: 18px;
+        cursor: pointer;
+        padding: 10px 0;
     }
-    .st-au, .st-av, .st-aw {
-        border: none;
-        border-top: 1px solid #FFA500; /* Màu cam cho đường gạch ngang */
-        margin: 20px 0;
+    .sidebar .sidebar-radio label span {
+        margin-left: 10px;
     }
-    .st-am, .st-an, .st-ao, .st-ap, .st-aq, .st-ar, .st-as, .st-at {
-        color: white;
-        font-size: 24px;
-        text-decoration: none;
-        display: block;
-        margin: 10px 0;
+    .sidebar .sidebar-radio label:hover {
+        background-color: #e64a19;
     }
-    .st-am:hover, .st-an:hover, .st-ao:hover, .st-ap:hover, .st-aq:hover, .st-ar:hover, .st-as:hover, .st-at:hover {
-        color: #FFA500; /* Màu cam khi hover */
+    .sidebar .sidebar-radio input[type="radio"]:checked + label {
+        background-color: #d84315;
     }
-    .main-content {
-        background-image: url('https://example.com/path/to/image.jpg'); /* Đường dẫn hình nền */
-        background-size: cover;
-        background-position: center;
-        height: 100vh;
-        padding: 50px;
-        color: white;
+    .sidebar .sidebar-radio label img {
+        width: 24px;
+        height: 24px;
     }
     </style>
     """,
     unsafe_allow_html=True
 )
 
-# Thiết lập trạng thái ban đầu
-if 'page' not in st.session_state:
-    st.session_state['page'] = 'Cổ phiếu chọn lọc'
+# Sidebar title
+st.sidebar.title("Learn about our company")
 
-# Sidebar content
-def set_page(page_name):
-    st.session_state['page'] = page_name
+# Sidebar menu with custom icons
+menu_items = {
+    "Thông tin thị trường": "📈",
+    "Cổ phiếu chọn lọc": "⭐",
+    "Đầu tư Danh mục": "📊",
+    "Flash Deal": "⚡",
+    "Hướng dẫn sử dụng": "📘",
+    "Liên hệ": "📞"
+}
 
-st.sidebar.markdown("<div class='st-ae st-af st-ag st-ah st-ai st-aj st-ak'>", unsafe_allow_html=True)
-st.sidebar.markdown("<h1 class='st-al'>VNWEALTH</h1>", unsafe_allow_html=True)
-st.sidebar.markdown("<a href='#' class='st-am st-an st-ao st-ap st-aq st-ar st-as st-at' onclick='window.setPage(\"Cổ phiếu chọn lọc\")'>Cổ phiếu chọn lọc</a>", unsafe_allow_html=True)
-st.sidebar.markdown("<hr class='st-au st-av st-aw'>", unsafe_allow_html=True)
-st.sidebar.markdown("<a href='#' class='st-am st-an st-ao st-ap st-aq st-ar st-as st-at' onclick='window.setPage(\"Đầu tư danh mục\")'>Đầu tư danh mục</a>", unsafe_allow_html=True)
-st.sidebar.markdown("<hr class='st-au st-av st-aw'>", unsafe_allow_html=True)
-st.sidebar.markdown("<a href='#' class='st-am st-an st-ao st-ap st-aq st-ar st-as st-at' onclick='window.setPage(\"Thông tin thị trường\")'>Thông tin thị trường</a>", unsafe_allow_html=True)
-st.sidebar.markdown("<hr class='st-au st-av st-aw'>", unsafe_allow_html=True)
-st.sidebar.markdown("<a href='#' class='st-am st-an st-ao st-ap st-aq st-ar st-as st-at' onclick='window.setPage(\"Flash deal\")'>Flash deal</a>", unsafe_allow_html=True)
-st.sidebar.markdown("<hr class='st-au st-av st-aw'>", unsafe_allow_html=True)
-st.sidebar.markdown("<a href='#' class='st-am st-an st-ao st-ap st-aq st-ar st-as st-at' onclick='window.setPage(\"Hướng dẫn\")'>Hướng dẫn</a>", unsafe_allow_html=True)
-st.sidebar.markdown("<hr class='st-au st-av st-aw'>", unsafe_allow_html=True)
-st.sidebar.markdown("<a href='#' class='st-am st-an st-ao st-ap st-aq st-ar st-as st-at' onclick='window.setPage(\"Liên hệ\")'>Liên hệ</a>", unsafe_allow_html=True)
-st.sidebar.markdown("</div>", unsafe_allow_html=True)
+selected_item = st.sidebar.radio(
+    "Navigate",
+    list(menu_items.keys()),
+    format_func=lambda x: f"{menu_items[x]} {x}"
+)
 
 # Main content based on sidebar selection
-if st.session_state['page'] == 'Cổ phiếu chọn lọc':
-    st.title("Cổ phiếu chọn lọc")
-elif st.session_state['page'] == 'Đầu tư danh mục':
-    st.title("Đầu tư danh mục")
-elif st.session_state['page'] == 'Thông tin thị trường':
-    st.title("Thông tin thị trường")
-elif st.session_state['page'] == 'Flash deal':
-    st.title("Flash deal")
-elif st.session_state['page'] == 'Hướng dẫn':
-    st.title("Hướng dẫn")
-elif st.session_state['page'] == 'Liên hệ':
-    st.title("Liên hệ")
+st.title(selected_item)
+if selected_item == "Thông tin thị trường":
+    st.header("Thông tin thị trường")
+    st.write("Nội dung cho phần Thông tin thị trường...")
+elif selected_item == "Cổ phiếu chọn lọc":
+    st.header("Cổ phiếu chọn lọc")
+    st.write("Nội dung cho phần Cổ phiếu chọn lọc...")
+elif selected_item == "Đầu tư Danh mục":
+    st.header("Đầu tư Danh mục")
+    st.write("Nội dung cho phần Đầu tư Danh mục...")
+elif selected_item == "Flash Deal":
+    st.header("Flash Deal")
+    st.write("Nội dung cho phần Flash Deal...")
+elif selected_item == "Hướng dẫn sử dụng":
+    st.header("Hướng dẫn sử dụng")
+    st.write("Nội dung cho phần Hướng dẫn sử dụng...")
+elif selected_item == "Liên hệ":
+    st.header("Liên hệ")
+    st.write("Nội dung cho phần Liên hệ...")
+
+# Additional main page content
+st.write("Chào mừng bạn đến với trang web của chúng tôi! Tại đây, bạn có thể tìm hiểu thêm về thị trường, các cổ phiếu chọn lọc, cách đầu tư danh mục, và các Flash Deal hiện tại. Hãy liên hệ với chúng tôi nếu bạn cần hỗ trợ hoặc hướng dẫn sử dụng.")
