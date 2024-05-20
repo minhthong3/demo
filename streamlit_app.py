@@ -1,66 +1,7 @@
 import streamlit as st
 
-# Custom CSS
-st.markdown(
-    """
-    <style>
-    .sidebar .sidebar-content {
-        background-color: #ff5722; /* Adjust this to match your orange sidebar */
-        color: white;
-    }
-    .main {
-        background-color: #f8f8f8;
-    }
-    .sidebar .sidebar-content, .main {
-        padding: 0;
-        margin: 0;
-    }
-    .sidebar .sidebar-content {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-        text-align: left;
-        padding-left: 20px;
-    }
-    .sidebar-content h1 {
-        margin-top: 20px;
-        color: #ffffff;
-    }
-    .sidebar-content p {
-        color: #ffffff;
-    }
-    .sidebar .sidebar-radio input[type="radio"] {
-        display: none;
-    }
-    .sidebar .sidebar-radio label {
-        display: flex;
-        align-items: center;
-        color: white;
-        font-size: 18px;
-        cursor: pointer;
-        padding: 10px 0;
-    }
-    .sidebar .sidebar-radio label span {
-        margin-left: 10px;
-    }
-    .sidebar .sidebar-radio label:hover {
-        background-color: #e64a19;
-    }
-    .sidebar .sidebar-radio input[type="radio"]:checked + label {
-        background-color: #d84315;
-    }
-    .sidebar .sidebar-radio label img {
-        width: 24px;
-        height: 24px;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
 # Sidebar title
-st.sidebar.title("Learn about our company")
+st.sidebar.title("VNWEALTH")
 
 # Sidebar menu with custom icons
 menu_items = {
@@ -73,7 +14,7 @@ menu_items = {
 }
 
 selected_item = st.sidebar.radio(
-    "Navigate",
+    "",
     list(menu_items.keys()),
     format_func=lambda x: f"{menu_items[x]} {x}"
 )
