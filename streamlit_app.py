@@ -3,9 +3,11 @@ import streamlit as st
 # Inject custom CSS for background image
 background_image = '''
 <style>
-body {
+[data-testid="stAppViewContainer"] {
     background-image: url("images/27324.jpg");
     background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 </style>
 '''
