@@ -1,176 +1,46 @@
 import streamlit as st
-import os
+from PIL import Image
 
-# Đường dẫn đến hình ảnh
-image_url = "images/27324.jpg"
+# Load the image
+image = Image.open("/mnt/data/image.png")
 
-# Đọc file CSS
-def load_css(file_name):
-    with open(file_name) as f:
-        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+# Set up the sidebar
+st.sidebar.image(image, use_column_width=True)
 
-def main():
-    # Kiểm tra xem tệp CSS có tồn tại không
-    css_file = "style.css"
-    if os.path.exists(css_file):
-        load_css(css_file)
-    else:
-        st.error("File CSS không tồn tại. Hãy đảm bảo rằng tệp style.css nằm cùng thư mục với app.py")
+# Sidebar options
+st.sidebar.title("Finbox")
+st.sidebar.markdown("### Minh Thông Nguyễn")
+st.sidebar.button("Nâng cấp tài khoản (BASIC)")
+st.sidebar.button("Cài đặt thông báo")
+st.sidebar.button("Danh mục theo dõi")
 
-    st.sidebar.title("Pages")
-    menu_options = ["Cổ phiếu chọn lọc", "Đầu tư danh mục", "Thông tin thị trường", "Flash deal", "Hướng dẫn", "Liên hệ"]
-    menu_selection = st.sidebar.radio("", menu_options)
+# Sidebar menu
+st.sidebar.markdown("### Menu")
+options = st.sidebar.radio(
+    "Chọn mục:",
+    ("Tổng hợp", "Bộ lọc", "Khuyến nghị", "Biểu đồ kỹ thuật", "Săn tin", "Phân tích", "Blog", "Hướng dẫn chung")
+)
 
-    if menu_selection == "Cổ phiếu chọn lọc":
-        page_co_phieu_chon_loc()
-    elif menu_selection == "Đầu tư danh mục":
-        page_dau_tu_danh_muc()
-    elif menu_selection == "Thông tin thị trường":
-        page_thong_tin_thi_truong()
-    elif menu_selection == "Flash deal":
-        page_flash_deal()
-    elif menu_selection == "Hướng dẫn":
-        page_huong_dan()
-    elif menu_selection == "Liên hệ":
-        page_lien_he()
+# Main content based on the selected menu option
+st.title(f"Bạn đã chọn: {options}")
 
-def page_co_phieu_chon_loc():
-    st.markdown(f'''
-    <div style="display: flex; height: 100vh;">
-        <div class="sidebar">
-            <h2>VNWEALTH</h2>
-            <a href="#">Cổ phiếu chọn lọc</a>
-            <hr>
-            <a href="#">Đầu tư danh mục</a>
-            <hr>
-            <a href="#">Thông tin thị trường</a>
-            <hr>
-            <a href="#">Flash deal</a>
-            <hr>
-            <a href="#">Hướng dẫn</a>
-            <hr>
-            <a href="#">Liên hệ</a>
-        </div>
-        <div class="main-content" style="background-image: url('{image_url}');"></div>
-    </div>
-    ''', unsafe_allow_html=True)
-    st.subheader("Cổ phiếu chọn lọc")
-    st.write("Nội dung cho Cổ phiếu chọn lọc...")
+if options == "Tổng hợp":
+    st.write("Hiển thị nội dung tổng hợp tại đây...")
+elif options == "Bộ lọc":
+    st.write("Hiển thị bộ lọc tại đây...")
+elif options == "Khuyến nghị":
+    st.write("Hiển thị khuyến nghị tại đây...")
+elif options == "Biểu đồ kỹ thuật":
+    st.write("Hiển thị biểu đồ kỹ thuật tại đây...")
+elif options == "Săn tin":
+    st.write("Hiển thị săn tin tại đây...")
+elif options == "Phân tích":
+    st.write("Hiển thị phân tích tại đây...")
+elif options == "Blog":
+    st.write("Hiển thị blog tại đây...")
+elif options == "Hướng dẫn chung":
+    st.write("Hiển thị hướng dẫn chung tại đây...")
 
-def page_dau_tu_danh_muc():
-    st.markdown(f'''
-    <div style="display: flex; height: 100vh;">
-        <div class="sidebar">
-            <h2>VNWEALTH</h2>
-            <a href="#">Cổ phiếu chọn lọc</a>
-            <hr>
-            <a href="#">Đầu tư danh mục</a>
-            <hr>
-            <a href="#">Thông tin thị trường</a>
-            <hr>
-            <a href="#">Flash deal</a>
-            <hr>
-            <a href="#">Hướng dẫn</a>
-            <hr>
-            <a href="#">Liên hệ</a>
-        </div>
-        <div class="main-content" style="background-image: url('{image_url}');"></div>
-    </div>
-    ''', unsafe_allow_html=True)
-    st.subheader("Đầu tư danh mục")
-    st.write("Nội dung cho Đầu tư danh mục...")
-
-def page_thong_tin_thi_truong():
-    st.markdown(f'''
-    <div style="display: flex; height: 100vh;">
-        <div class="sidebar">
-            <h2>VNWEALTH</h2>
-            <a href="#">Cổ phiếu chọn lọc</a>
-            <hr>
-            <a href="#">Đầu tư danh mục</a>
-            <hr>
-            <a href="#">Thông tin thị trường</a>
-            <hr>
-            <a href="#">Flash deal</a>
-            <hr>
-            <a href="#">Hướng dẫn</a>
-            <hr>
-            <a href="#">Liên hệ</a>
-        </div>
-        <div class="main-content" style="background-image: url('{image_url}');"></div>
-    </div>
-    ''', unsafe_allow_html=True)
-    st.subheader("Thông tin thị trường")
-    st.write("Nội dung cho Thông tin thị trường...")
-
-def page_flash_deal():
-    st.markdown(f'''
-    <div style="display: flex; height: 100vh;">
-        <div class="sidebar">
-            <h2>VNWEALTH</h2>
-            <a href="#">Cổ phiếu chọn lọc</a>
-            <hr>
-            <a href="#">Đầu tư danh mục</a>
-            <hr>
-            <a href="#">Thông tin thị trường</a>
-            <hr>
-            <a href="#">Flash deal</a>
-            <hr>
-            <a href="#">Hướng dẫn</a>
-            <hr>
-            <a href="#">Liên hệ</a>
-        </div>
-        <div class="main-content" style="background-image: url('{image_url}');"></div>
-    </div>
-    ''', unsafe_allow_html=True)
-    st.subheader("Flash deal")
-    st.write("Nội dung cho Flash deal...")
-
-def page_huong_dan():
-    st.markdown(f'''
-    <div style="display: flex; height: 100vh;">
-        <div class="sidebar">
-            <h2>VNWEALTH</h2>
-            <a href="#">Cổ phiếu chọn lọc</a>
-            <hr>
-            <a href="#">Đầu tư danh mục</a>
-            <hr>
-            <a href="#">Thông tin thị trường</a>
-            <hr>
-            <a href="#">Flash deal</a>
-            <hr>
-            <a href="#">Hướng dẫn</a>
-            <hr>
-            <a href="#">Liên hệ</a>
-        </div>
-        <div class="main-content" style="background-image: url('{image_url}');"></div>
-    </div>
-    ''', unsafe_allow_html=True)
-    st.subheader("Hướng dẫn")
-    st.write("Nội dung cho Hướng dẫn...")
-
-def page_lien_he():
-    st.markdown(f'''
-    <div style="display: flex; height: 100vh;">
-        <div class="sidebar">
-            <h2>VNWEALTH</h2>
-            <a href="#">Cổ phiếu chọn lọc</a>
-            <hr>
-            <a href="#">Đầu tư danh mục</a>
-            <hr>
-            <a href="#">Thông tin thị trường</a>
-            <hr>
-            <a href="#">Flash deal</a>
-            <hr>
-            <a href="#">Hướng dẫn</a>
-            <hr>
-            <a href="#">Liên hệ</a>
-        </div>
-        <div class="main-content" style="background-image: url('{image_url}');"></div>
-    </div>
-    ''', unsafe_allow_html=True)
-    st.subheader("Liên hệ")
-    st.write("Nội dung cho Liên hệ...")
-
-if __name__ == "__main__":
-    main()
+# Additional main page content
+st.image(image)
+st.write("Đây là ứng dụng Streamlit với sidebar tương tự như hình ảnh đã cung cấp.")
