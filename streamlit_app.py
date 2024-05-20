@@ -1,19 +1,6 @@
 import streamlit as st
 
-# Custom CSS
-css_code = """
-<style>
-    .main {
-        background: url('images/27324.jpg') no-repeat center center fixed;
-        background-size: cover;
-        color: white;
-        padding: 20px;
-    }
-</style>
-"""
 
-# Inject CSS into the app
-st.html(css_code)
 
 # Sidebar title
 st.sidebar.title("Learn about our company")
