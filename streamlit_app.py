@@ -11,6 +11,8 @@ st.markdown(
     .main {
         background-color: #34495e;
         color: white;
+        padding: 0;  /* Xóa padding */
+        margin: 0;
     }
     .sidebar .sidebar-content, .main {
         padding: 0;
@@ -53,8 +55,8 @@ st.markdown(
         background-color: #1e3799;
     }
     .sidebar .sidebar-radio label img {
-        width: 24px;
-        height: 24px;
+        width: 16px;  /* Giảm kích thước logo */
+        height: 16px;  /* Giảm kích thước logo */
         margin-right: 10px;
     }
     </style>
