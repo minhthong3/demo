@@ -1,5 +1,17 @@
 import streamlit as st
 
+# Inject custom CSS for background image
+background_image = '''
+<style>
+body {
+    background-image: url("https://example.com/your-background-image.jpg");
+    background-size: cover;
+}
+</style>
+'''
+
+st.markdown(background_image, unsafe_allow_html=True)
+
 # Sidebar title
 st.sidebar.title("VNWEALTH")
 
