@@ -2,7 +2,7 @@ import streamlit as st
 import base64
 
 # Function to get the base64 encoding of the binary file
-@st.cache(allow_output_mutation=True)
+@st.cache_data
 def get_base64_of_bin_file(bin_file):
     with open(bin_file, 'rb') as f:
         data = f.read()
@@ -13,9 +13,11 @@ def set_png_as_page_bg(png_file):
     bin_str = get_base64_of_bin_file(png_file)
     page_bg_img = '''
     <style>
-    body {
-    background-image: url("data:image/png;base64,%s");
-    background-size: cover;
+    [data-testid="stAppViewContainer"] {
+        background-image: url("data:image/png;base64,%s");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
     }
     </style>
     ''' % bin_str
@@ -24,7 +26,7 @@ def set_png_as_page_bg(png_file):
     return
 
 # Set the background image
-set_png_as_page_bg('images/VN.png')
+set_png_as_page_bg('images/27324.jpg')
 
 # Sidebar title
 st.sidebar.title("VNWEALTH")
