@@ -31,7 +31,7 @@ st.markdown(
         color: #FFA500; /* Màu cam khi hover */
     }
     .main-content {
-        background-image: url('file-JFigYS9NjXwnisMrGk4QnqWK'); /* Đường dẫn hình nền */
+        background-image: url('https://example.com/path/to/image.jpg'); /* Đường dẫn hình nền */
         background-size: cover;
         background-position: center;
         height: 100vh;
@@ -43,31 +43,39 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+# Thiết lập trạng thái ban đầu
+if 'page' not in st.session_state:
+    st.session_state['page'] = 'Cổ phiếu chọn lọc'
+
 # Sidebar content
+def set_page(page_name):
+    st.session_state['page'] = page_name
+
 st.sidebar.markdown("<div class='st-ae st-af st-ag st-ah st-ai st-aj st-ak'>", unsafe_allow_html=True)
 st.sidebar.markdown("<h1 class='st-al'>VNWEALTH</h1>", unsafe_allow_html=True)
-st.sidebar.markdown("<a href='#' class='st-am st-an st-ao st-ap st-aq st-ar st-as st-at'>Cổ phiếu chọn lọc</a>", unsafe_allow_html=True)
+st.sidebar.markdown("<a href='#' class='st-am st-an st-ao st-ap st-aq st-ar st-as st-at' onclick='window.setPage(\"Cổ phiếu chọn lọc\")'>Cổ phiếu chọn lọc</a>", unsafe_allow_html=True)
 st.sidebar.markdown("<hr class='st-au st-av st-aw'>", unsafe_allow_html=True)
-st.sidebar.markdown("<a href='#' class='st-am st-an st-ao st-ap st-aq st-ar st-as st-at'>Đầu tư danh mục</a>", unsafe_allow_html=True)
+st.sidebar.markdown("<a href='#' class='st-am st-an st-ao st-ap st-aq st-ar st-as st-at' onclick='window.setPage(\"Đầu tư danh mục\")'>Đầu tư danh mục</a>", unsafe_allow_html=True)
 st.sidebar.markdown("<hr class='st-au st-av st-aw'>", unsafe_allow_html=True)
-st.sidebar.markdown("<a href='#' class='st-am st-an st-ao st-ap st-aq st-ar st-as st-at'>Thông tin thị trường</a>", unsafe_allow_html=True)
+st.sidebar.markdown("<a href='#' class='st-am st-an st-ao st-ap st-aq st-ar st-as st-at' onclick='window.setPage(\"Thông tin thị trường\")'>Thông tin thị trường</a>", unsafe_allow_html=True)
 st.sidebar.markdown("<hr class='st-au st-av st-aw'>", unsafe_allow_html=True)
-st.sidebar.markdown("<a href='#' class='st-am st-an st-ao st-ap st-aq st-ar st-as st-at'>Flash deal</a>", unsafe_allow_html=True)
+st.sidebar.markdown("<a href='#' class='st-am st-an st-ao st-ap st-aq st-ar st-as st-at' onclick='window.setPage(\"Flash deal\")'>Flash deal</a>", unsafe_allow_html=True)
 st.sidebar.markdown("<hr class='st-au st-av st-aw'>", unsafe_allow_html=True)
-st.sidebar.markdown("<a href='#' class='st-am st-an st-ao st-ap st-aq st-ar st-as st-at'>Hướng dẫn</a>", unsafe_allow_html=True)
+st.sidebar.markdown("<a href='#' class='st-am st-an st-ao st-ap st-aq st-ar st-as st-at' onclick='window.setPage(\"Hướng dẫn\")'>Hướng dẫn</a>", unsafe_allow_html=True)
 st.sidebar.markdown("<hr class='st-au st-av st-aw'>", unsafe_allow_html=True)
-st.sidebar.markdown("<a href='#' class='st-am st-an st-ao st-ap st-aq st-ar st-as st-at'>Liên hệ</a>", unsafe_allow_html=True)
+st.sidebar.markdown("<a href='#' class='st-am st-an st-ao st-ap st-aq st-ar st-as st-at' onclick='window.setPage(\"Liên hệ\")'>Liên hệ</a>", unsafe_allow_html=True)
 st.sidebar.markdown("</div>", unsafe_allow_html=True)
 
-# Main content
-st.markdown(
-    """
-    <div class='main-content'>
-        <!-- Nội dung chính của bạn ở đây -->
-    </div>
-    """,
-    unsafe_allow_html=True
-)
-
-st.title("Chào mừng bạn đến với VNWEALTH")
-st.write("Tại đây, bạn có thể tìm hiểu thêm về thị trường, các cổ phiếu chọn lọc, cách đầu tư danh mục, và các Flash Deal hiện tại. Hãy liên hệ với chúng tôi nếu bạn cần hỗ trợ hoặc hướng dẫn sử dụng.")
+# Main content based on sidebar selection
+if st.session_state['page'] == 'Cổ phiếu chọn lọc':
+    st.title("Cổ phiếu chọn lọc")
+elif st.session_state['page'] == 'Đầu tư danh mục':
+    st.title("Đầu tư danh mục")
+elif st.session_state['page'] == 'Thông tin thị trường':
+    st.title("Thông tin thị trường")
+elif st.session_state['page'] == 'Flash deal':
+    st.title("Flash deal")
+elif st.session_state['page'] == 'Hướng dẫn':
+    st.title("Hướng dẫn")
+elif st.session_state['page'] == 'Liên hệ':
+    st.title("Liên hệ")
