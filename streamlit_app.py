@@ -2,45 +2,55 @@ import streamlit as st
 from PIL import Image
 
 # Load the image
-image = Image.open("/mnt/data/image.png")
+image = Image.open("/mnt/data/Untitled design.png")
 
-# Set up the sidebar
-st.sidebar.image(image, use_column_width=True)
-
-# Sidebar options
-st.sidebar.title("Finbox")
-st.sidebar.markdown("### Minh Thông Nguyễn")
-st.sidebar.button("Nâng cấp tài khoản (BASIC)")
-st.sidebar.button("Cài đặt thông báo")
-st.sidebar.button("Danh mục theo dõi")
-
-# Sidebar menu
-st.sidebar.markdown("### Menu")
-options = st.sidebar.radio(
-    "Chọn mục:",
-    ("Tổng hợp", "Bộ lọc", "Khuyến nghị", "Biểu đồ kỹ thuật", "Săn tin", "Phân tích", "Blog", "Hướng dẫn chung")
+# Custom CSS
+st.markdown(
+    """
+    <style>
+    .sidebar .sidebar-content {
+        background-image: url(https://via.placeholder.com/150);
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: white;
+    }
+    .main {
+        background-color: #f8f8f8;
+    }
+    .sidebar .sidebar-content, .main {
+        padding: 0;
+        margin: 0;
+    }
+    .sidebar .sidebar-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .sidebar-content h1 {
+        margin-top: 20px;
+        color: #ffffff;
+    }
+    .sidebar-content p {
+        color: #ffffff;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
 )
 
-# Main content based on the selected menu option
-st.title(f"Bạn đã chọn: {options}")
+# Sidebar with custom image and menu
+st.sidebar.image(image, use_column_width=True)
+st.sidebar.title("Learn about our company")
+st.sidebar.markdown("<div style='color: white;'>Our Values</div>", unsafe_allow_html=True)
+st.sidebar.markdown("<div style='color: white;'>The Team</div>", unsafe_allow_html=True)
+st.sidebar.markdown("<div style='color: white;'>Our Services</div>", unsafe_allow_html=True)
+st.sidebar.markdown("<div style='color: white;'>Newsletter</div>", unsafe_allow_html=True)
+st.sidebar.markdown("<div style='color: white;'>Book a Consultation</div>", unsafe_allow_html=True)
+st.sidebar.markdown("<div style='color: white;'>Contact Us</div>", unsafe_allow_html=True)
 
-if options == "Tổng hợp":
-    st.write("Hiển thị nội dung tổng hợp tại đây...")
-elif options == "Bộ lọc":
-    st.write("Hiển thị bộ lọc tại đây...")
-elif options == "Khuyến nghị":
-    st.write("Hiển thị khuyến nghị tại đây...")
-elif options == "Biểu đồ kỹ thuật":
-    st.write("Hiển thị biểu đồ kỹ thuật tại đây...")
-elif options == "Săn tin":
-    st.write("Hiển thị săn tin tại đây...")
-elif options == "Phân tích":
-    st.write("Hiển thị phân tích tại đây...")
-elif options == "Blog":
-    st.write("Hiển thị blog tại đây...")
-elif options == "Hướng dẫn chung":
-    st.write("Hiển thị hướng dẫn chung tại đây...")
+# Main content
+st.image(image, caption='Strategic Branding', use_column_width=True)
+st.write("Welcome to our website! Here you can learn more about our values, the team, and the services we offer. Feel free to contact us or book a consultation.")
 
-# Additional main page content
-st.image(image)
-st.write("Đây là ứng dụng Streamlit với sidebar tương tự như hình ảnh đã cung cấp.")
