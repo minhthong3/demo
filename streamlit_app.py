@@ -4,8 +4,46 @@ import streamlit as st
 st.markdown(
     """
     <style>
+    .sideNavigation_sideNavigationContainer__G0dDv {
+        height: 100%;
+        display: grid;
+        grid-template-columns: 260px auto;
+    }
+    .sideNavigation_sideNavigationMenuContainer__cDKfX {
+        background-color: #2c3e50; /* Dark background color */
+        color: white; /* Text color */
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        z-index: 10;
+        padding: 10px;
+    }
+    .sideNavigation_itemList__LeEZ0 {
+        overflow: overlay;
+        color: white;
+    }
+    .sideNavigation_sideNavigationBodyContainer__lmizj {
+        overflow: scroll;
+        position: relative;
+        color: white;
+    }
+    .sideNavigation_header__mUzX3 {
+        margin-top: 1.5rem;
+        color: white;
+    }
+    .sideNavigation_title__dL9t2 {
+        font-weight: 400;
+        line-height: 2.25rem;
+        color: white;
+    }
+    .sideNavigation_subTitle__VSPgg {
+        color: white;
+        font-size: .875rem;
+        font-weight: 400;
+        line-height: 1rem;
+    }
     .sidebar .sidebar-content {
-        background-color: #2c3e50; /* Adjust this to match your dark sidebar */
+        background-color: #2c3e50; /* Dark background color */
         color: white;
         padding: 0;
         margin: 0;
@@ -16,17 +54,17 @@ st.markdown(
         text-align: left;
         padding-left: 20px;
     }
-    .sidebar .sidebar-content h1 {
+    .sidebar-content h1 {
         margin-top: 20px;
         color: #ffffff;
     }
-    .sidebar .sidebar-content p {
+    .sidebar-content p {
         color: #ffffff;
     }
-    .sidebar .sidebar-radio input[type="radio"] {
+    .sidebar-radio input[type="radio"] {
         display: none;
     }
-    .sidebar .sidebar-radio label {
+    .sidebar-radio label {
         display: flex;
         align-items: center;
         color: white;
@@ -34,16 +72,16 @@ st.markdown(
         cursor: pointer;
         padding: 10px 0;
     }
-    .sidebar .sidebar-radio label span {
+    .sidebar-radio label span {
         margin-left: 10px;
     }
-    .sidebar .sidebar-radio label:hover {
+    .sidebar-radio label:hover {
         background-color: #34495e;
     }
-    .sidebar .sidebar-radio input[type="radio"]:checked + label {
+    .sidebar-radio input[type="radio"]:checked + label {
         background-color: #1abc9c;
     }
-    .sidebar .sidebar-radio label img {
+    .sidebar-radio label img {
         width: 24px;
         height: 24px;
     }
@@ -74,7 +112,9 @@ menu_items = {
 selected_item = st.sidebar.radio(
     "Navigate",
     list(menu_items.keys()),
-    format_func=lambda x: f"{menu_items[x]} {x}"
+    format_func=lambda x: f"{menu_items[x]} {x}",
+    key="sidebar-radio",
+    label_visibility="collapsed",
 )
 
 # Main content based on sidebar selection
