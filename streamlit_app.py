@@ -99,5 +99,4 @@ elif selected_item == "Liên hệ":
     st.header("Liên hệ")
     st.write("Nội dung cho phần Liên hệ...")
 
-# Additional main page content
-st.write("Chào mừng bạn đến với trang web của chúng tôi! Tại đây, bạn có thể tìm
+
