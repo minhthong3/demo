@@ -60,7 +60,7 @@ st.markdown(
 )
 
 # Sidebar title
-st.sidebar.title("Learn about our company")
+st.sidebar.title("VNWEALTH")
 
 # Sidebar menu with custom icons
 menu_items = {
