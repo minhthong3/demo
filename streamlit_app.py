@@ -60,44 +60,44 @@ st.markdown(
 )
 
 # Sidebar title
-st.sidebar.title("VNWEALTH")
+st.sidebar.title("Learn about our company")
 
 # Sidebar menu with custom icons
 menu_items = {
-    "Our Values": "🌟",
-    "The Team": "👥",
-    "Our Services": "💼",
-    "Newsletter": "📰",
-    "Book a Consultation": "📅",
-    "Contact Us": "📞"
+    "Thông tin thị trường": "📈",
+    "Cổ phiếu chọn lọc": "⭐",
+    "Đầu tư Danh mục": "📊",
+    "Flash Deal": "⚡",
+    "Hướng dẫn sử dụng": "📘",
+    "Liên hệ": "📞"
 }
 
 selected_item = st.sidebar.radio(
-    "",
+    "Navigate",
     list(menu_items.keys()),
     format_func=lambda x: f"{menu_items[x]} {x}"
 )
 
 # Main content based on sidebar selection
 st.title(selected_item)
-if selected_item == "Our Values":
-    st.header("Our Values")
-    st.write("Content for Our Values section...")
-elif selected_item == "The Team":
-    st.header("The Team")
-    st.write("Content for The Team section...")
-elif selected_item == "Our Services":
-    st.header("Our Services")
-    st.write("Content for Our Services section...")
-elif selected_item == "Newsletter":
-    st.header("Newsletter")
-    st.write("Content for Newsletter section...")
-elif selected_item == "Book a Consultation":
-    st.header("Book a Consultation")
-    st.write("Content for Book a Consultation section...")
-elif selected_item == "Contact Us":
-    st.header("Contact Us")
-    st.write("Content for Contact Us section...")
+if selected_item == "Thông tin thị trường":
+    st.header("Thông tin thị trường")
+    st.write("Nội dung cho phần Thông tin thị trường...")
+elif selected_item == "Cổ phiếu chọn lọc":
+    st.header("Cổ phiếu chọn lọc")
+    st.write("Nội dung cho phần Cổ phiếu chọn lọc...")
+elif selected_item == "Đầu tư Danh mục":
+    st.header("Đầu tư Danh mục")
+    st.write("Nội dung cho phần Đầu tư Danh mục...")
+elif selected_item == "Flash Deal":
+    st.header("Flash Deal")
+    st.write("Nội dung cho phần Flash Deal...")
+elif selected_item == "Hướng dẫn sử dụng":
+    st.header("Hướng dẫn sử dụng")
+    st.write("Nội dung cho phần Hướng dẫn sử dụng...")
+elif selected_item == "Liên hệ":
+    st.header("Liên hệ")
+    st.write("Nội dung cho phần Liên hệ...")
 
 # Additional main page content
-st.write("Welcome to our website! Here you can learn more about our values, the team, and the services we offer. Feel free to contact us or book a consultation.")
+st.write("Chào mừng bạn đến với trang web của chúng tôi! Tại đây, bạn có thể tìm hiểu thêm về thị trường, các cổ phiếu chọn lọc, cách đầu tư danh mục, và các Flash Deal hiện tại. Hãy liên hệ với chúng tôi nếu bạn cần hỗ trợ hoặc hướng dẫn sử dụng.")
