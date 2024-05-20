@@ -1,6 +1,8 @@
 import streamlit as st
 import base64
 
+
+# Page Bachground Image
 # Function to get the base64 encoding of the binary file
 @st.cache_data
 def get_base64_of_bin_file(bin_file):
