@@ -10,31 +10,34 @@ st.markdown(
         grid-template-columns: 260px auto;
     }
     .sideNavigation_sideNavigationMenuContainer__cDKfX {
-        background-color: rgb(250, 250, 250);
-        border-bottom-width: 1px;
-        border-color: rgb(213, 218, 229);
+        background-color: #2c3e50;
         display: flex;
         flex-direction: column;
         overflow: hidden;
         z-index: 10;
-        border-right-width: 1px;
+        padding: 10px;
+        color: white;
     }
     .sideNavigation_itemList__LeEZ0 {
         overflow: overlay;
+        color: white;
     }
     .sideNavigation_sideNavigationBodyContainer__lmizj {
         overflow: scroll;
         position: relative;
+        color: white;
     }
     .sideNavigation_header__mUzX3 {
         margin-top: 1.5rem;
+        color: white;
     }
     .sideNavigation_title__dL9t2 {
         font-weight: 400;
         line-height: 2.25rem;
+        color: white;
     }
     .sideNavigation_subTitle__VSPgg {
-        color: rgb(128, 132, 149);
+        color: white;
         font-size: .875rem;
         font-weight: 400;
         line-height: 1rem;
@@ -42,6 +45,7 @@ st.markdown(
     .sidebar .sidebar-content, .main {
         padding: 0;
         margin: 0;
+        color: white;
     }
     .sidebar .sidebar-content {
         display: flex;
@@ -81,6 +85,12 @@ st.markdown(
     .sidebar .sidebar-radio label img {
         width: 24px;
         height: 24px;
+    }
+    .main {
+        background: url('background_image_url.jpg') no-repeat center center fixed;
+        background-size: cover;
+        color: white;
+        padding: 20px;
     }
     </style>
     """,
