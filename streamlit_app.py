@@ -76,23 +76,11 @@ menu_items = {
 }
 
 # Custom sidebar with icons
-for item, icon in menu_items.items():
-    st.sidebar.markdown(
-        f"""
-        <div class="sidebar-radio">
-            <input type="radio" id="{item}" name="menu" value="{item}">
-            <label for="{item}">
-                <img src="{icon}" alt="{item} icon">
-                <span>{item}</span>
-            </label>
-        </div>
-        """, unsafe_allow_html=True)
-
-# Detect which item is selected
 selected_item = st.sidebar.radio(
-    "Navigate",
-    list(menu_items.keys()),
-    format_func=lambda x: ""
+    "Menu",
+    options=list(menu_items.keys()),
+    format_func=lambda x: f'<div class="sidebar-radio"><label for="{x}"><img src="{menu_items[x]}" alt="{x} icon"><span>{x}</span></label></div>',
+    index=0
 )
 
 # Main content based on sidebar selection
@@ -120,8 +108,8 @@ page_functions = {
     "Bản đồ cổ đông": ban_do_co_dong
 }
 
-if selected_item:
-    page_functions[selected_item]()
+# Render the selected page
+page_functions[selected_item]()
 
 # Additional main page content
 st.write("Chào mừng đến với trang web của chúng tôi! Ở đây bạn có thể tìm hiểu thêm về các giá trị, đội ngũ và các dịch vụ mà chúng tôi cung cấp. Hãy liên hệ với chúng tôi hoặc đặt một buổi tư vấn.")
