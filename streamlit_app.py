@@ -10,6 +10,8 @@ st.markdown(
     }
     .main {
         background-color: #34495e;
+        color: white;
+        padding: 20px;
     }
     .sidebar .sidebar-content, .main {
         padding: 0;
@@ -40,6 +42,7 @@ st.markdown(
         font-size: 18px;
         cursor: pointer;
         padding: 10px 0;
+        width: 100%;
     }
     .sidebar .sidebar-radio label span {
         margin-left: 10px;
@@ -71,10 +74,25 @@ menu_items = {
     "Bản đồ cổ đông": "https://img.icons8.com/ios-filled/50/ffffff/map.png"
 }
 
-selected_item = None
+# Custom sidebar with icons
 for item, icon in menu_items.items():
-    if st.sidebar.radio("", [item], key=item):
-        selected_item = item
+    st.sidebar.markdown(
+        f"""
+        <div class="sidebar-radio">
+            <input type="radio" id="{item}" name="menu" value="{item}">
+            <label for="{item}">
+                <img src="{icon}" alt="{item} icon">
+                <span>{item}</span>
+            </label>
+        </div>
+        """, unsafe_allow_html=True)
+
+# Detect which item is selected
+selected_item = st.sidebar.radio(
+    "Navigate",
+    list(menu_items.keys()),
+    format_func=lambda x: ""
+)
 
 # Main content based on sidebar selection
 if selected_item:
