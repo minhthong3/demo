@@ -1,8 +1,4 @@
 import streamlit as st
-from PIL import Image
-
-# Load the image
-image = Image.open("images/27324.jpg")
 
 # Custom CSS
 st.markdown(
@@ -22,9 +18,10 @@ st.markdown(
     .sidebar .sidebar-content {
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
+        justify-content: flex-start;
+        align-items: flex-start;
+        text-align: left;
+        padding-left: 20px;
     }
     .sidebar-content h1 {
         margin-top: 20px;
@@ -33,41 +30,70 @@ st.markdown(
     .sidebar-content p {
         color: #ffffff;
     }
+    .sidebar .sidebar-radio input[type="radio"] {
+        display: none;
+    }
+    .sidebar .sidebar-radio label {
+        display: flex;
+        align-items: center;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+        padding: 10px 0;
+    }
+    .sidebar .sidebar-radio label span {
+        margin-left: 10px;
+    }
+    .sidebar .sidebar-radio label:hover {
+        background-color: #e64a19;
+    }
+    .sidebar .sidebar-radio input[type="radio"]:checked + label {
+        background-color: #d84315;
+    }
     </style>
     """,
     unsafe_allow_html=True
 )
 
-# Sidebar with custom image and menu
-st.sidebar.image(image, use_column_width=True)
+# Sidebar title
 st.sidebar.title("Learn about our company")
 
-# Sidebar menu
-menu = st.sidebar.radio(
+# Sidebar menu with custom icons
+menu_items = {
+    "Our Values": "🌟",
+    "The Team": "👥",
+    "Our Services": "💼",
+    "Newsletter": "📰",
+    "Book a Consultation": "📅",
+    "Contact Us": "📞"
+}
+
+selected_item = st.sidebar.radio(
     "Navigate",
-    ("Our Values", "The Team", "Our Services", "Newsletter", "Book a Consultation", "Contact Us")
+    list(menu_items.keys()),
+    format_func=lambda x: f"{menu_items[x]} {x}"
 )
 
 # Main content based on sidebar selection
-if menu == "Our Values":
+st.title(selected_item)
+if selected_item == "Our Values":
     st.header("Our Values")
     st.write("Content for Our Values section...")
-elif menu == "The Team":
+elif selected_item == "The Team":
     st.header("The Team")
     st.write("Content for The Team section...")
-elif menu == "Our Services":
+elif selected_item == "Our Services":
     st.header("Our Services")
     st.write("Content for Our Services section...")
-elif menu == "Newsletter":
+elif selected_item == "Newsletter":
     st.header("Newsletter")
     st.write("Content for Newsletter section...")
-elif menu == "Book a Consultation":
+elif selected_item == "Book a Consultation":
     st.header("Book a Consultation")
     st.write("Content for Book a Consultation section...")
-elif menu == "Contact Us":
+elif selected_item == "Contact Us":
     st.header("Contact Us")
     st.write("Content for Contact Us section...")
 
 # Additional main page content
-st.image(image, caption='Strategic Branding', use_column_width=True)
 st.write("Welcome to our website! Here you can learn more about our values, the team, and the services we offer. Feel free to contact us or book a consultation.")
